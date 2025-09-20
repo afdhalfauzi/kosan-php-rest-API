@@ -104,7 +104,7 @@ function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM tenants WHERE tenantId = :tenantId";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['tenantId' => $input['tenantId']]);
+  $stmt->execute(['tenantId' => $_GET['tenantId']]);
   echo json_encode(["message" => "Tenant deleted succesfully"]);
 }
 ?>

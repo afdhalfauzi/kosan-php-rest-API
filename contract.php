@@ -104,7 +104,7 @@ function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM contracts WHERE contractId = :contractId";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['contractId' => $input['contractId']]);
+  $stmt->execute(['contractId' => $_GET['contractId']]);
   echo json_encode(["message" => "Contract deleted succesfully"]);
 }
 ?>

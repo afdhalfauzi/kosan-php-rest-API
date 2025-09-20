@@ -104,7 +104,7 @@ function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM admins WHERE adminId = :adminId";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['adminId' => $input['adminId']]);
+  $stmt->execute(['adminId' => $_GET['adminId']]);
   echo json_encode(["message" => "Admin deleted succesfully"]);
 }
 ?>

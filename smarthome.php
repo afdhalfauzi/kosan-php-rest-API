@@ -104,7 +104,7 @@ function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM smarthomes WHERE deviceId = :deviceId";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['deviceId' => $input['deviceId']]);
+  $stmt->execute(['deviceId' => $_GET['deviceId']]);
   echo json_encode(['message' => "Smarthome deleted succesfully"]);
 }
 ?>

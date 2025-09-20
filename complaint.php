@@ -104,7 +104,7 @@ function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM complaints WHERE complaintId = :complaintId";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['complaintId' => $input['complaintId']]);
+  $stmt->execute(['complaintId' => $_GET['complaintId']]);
   echo json_encode(["message" => "Complaint deleted succesfully"]);
 }
 ?>

@@ -104,7 +104,7 @@ function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM payments WHERE paymentId = :paymentId";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['paymentId' => $input['paymentId']]);
+  $stmt->execute(['paymentId' => $_GET['paymentId']]);
   echo json_encode(["message" => "Payment deleted succesfully"]);
 }
 ?>
