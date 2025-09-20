@@ -16,7 +16,7 @@ switch ($method) {
     handlePut($pdo, $input);
     break;
   case 'DELETE':
-    handleDelete($pdo, $input);
+    handleDelete($pdo);
     break;
   default:
     echo json_encode(['message' => 'Invalid request method']);
@@ -100,7 +100,7 @@ function handlePut($pdo, $input)
   }
 }
 
-function handleDelete($pdo, $input)
+function handleDelete($pdo)
 {
   $sql = "DELETE FROM bookings WHERE bookingId = :bookingId";
   $stmt = $pdo->prepare($sql);
