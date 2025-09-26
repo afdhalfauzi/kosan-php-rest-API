@@ -58,9 +58,9 @@ function handleGet($pdo)
 
 function handlePost($pdo, $input)
 {
-  $sql = "INSERT INTO tenants (tenantId, roomId, name, email, phoneNumber, accountProvider, createdAt) VALUES (:tenantId, :roomId, :name, :email, :phoneNumber, :accountProvider, :createdAt)";
+  $sql = "INSERT INTO tenants (tenantId, roomId, name, email, photoUrl, phoneNumber, accountProvider, fcmToken, createdAt) VALUES (:tenantId, :roomId, :name, :email, :photoUrl, :phoneNumber, :accountProvider, :fcmToken, :createdAt)";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['tenantId' => $input['tenantId'], 'roomId' => $input['roomId'], 'name' => $input['name'], 'email' => $input['email'], 'phoneNumber' => $input['phoneNumber'], 'accountProvider' => $input['accountProvider'], 'createdAt' => $input['createdAt']]);
+  $stmt->execute(['tenantId' => $input['tenantId'], 'roomId' => $input['roomId'], 'name' => $input['name'], 'email' => $input['email'], 'photoUrl' => $input['photoUrl'],'phoneNumber' => $input['phoneNumber'], 'accountProvider' => $input['accountProvider'], 'fcmToken' => $input['fcmToken'],'createdAt' => $input['createdAt']]);
   echo json_encode(['message' => 'Tenant added succesfully']);
 }
 
@@ -74,7 +74,7 @@ function handlePut($pdo, $input)
     echo json_encode(['message' => 'tenantId is required']);
     return;
   }
-  $cols = ['roomId', 'name', 'email', 'phoneNumber', 'accountProvider', 'createdAt'];
+  $cols = ['roomId', 'name', 'email', 'photoUrl', 'phoneNumber', 'accountProvider', 'fcmToken', 'createdAt'];
   $fields = [];
   $params = [];
 
