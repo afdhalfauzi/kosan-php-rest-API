@@ -1,10 +1,4 @@
 <?php
-// define('HOST', 'localhost');
-// define('USER', 'root');
-// define('PASS', '');
-// define('DB', 'kosan');
-// $con = mysqli_connect(HOST,USER,PASS,DB) or die('unable to connect');
-
 $host = "localhost";
 $user = "root";
 $password = "";
